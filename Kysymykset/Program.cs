@@ -45,8 +45,8 @@ namespace Kysymykset
                 if (rivi.Trim().Length != 0)
                 {
                     var arvot = rivi.Split(';');
-                KysymysVastaus uusikysvas = new KysymysVastaus(arvot[0], arvot[1], arvot[2]); // 0 = kysymys, 1 = oikea, 2 = väärä
-                KysVas.Add(uusikysvas);
+                    KysymysVastaus uusikysvas = new KysymysVastaus(arvot[0], arvot[1], arvot[2]); // 0 = kysymys, 1 = oikea, 2 = väärä
+                    KysVas.Add(uusikysvas);
                 }
             }
         }
@@ -57,40 +57,63 @@ namespace Kysymykset
             Random arpoja = new Random();
 
             int kysnro = arpoja.Next(0, KysVas.Count);
-            string vastaus;
 
-            do
+            Console.Clear();
+            bool vastaus = Kysy(kysnro);
+
+
+            if (vastaus)
             {
-                Console.Clear();
-                vastaus = Kysy(kysnro);
-                
+                Console.Beep(500, 100);
+                Thread.Sleep(100);
+                Console.Beep(800, 500);
+                Console.WriteLine("Oikein!");
 
-                if (vastaus == KysVas[kysnro].Oikea)
-                {
-                    Console.Beep(500, 100);
-                    Thread.Sleep(100);
-                    Console.Beep(800, 500);
-                    Console.WriteLine("Oikein!");
-
-                    o++;
-                }
-                else if (vastaus == KysVas[kysnro].Väärä)
-                {
-                    SoitaVäärä();
-                    Console.WriteLine("Väärin >:( ");
-                }
-
-            } while (vastaus != KysVas[kysnro].Väärä && vastaus != KysVas[kysnro].Oikea);
+                o++;
+            }
+            else
+            {
+                SoitaVäärä();
+                Console.WriteLine("Väärin >:( ");
+            }
 
             KysVas.Remove(KysVas[kysnro]);
 
-            string Kysy(int nro)
+            bool Kysy(int nro)
             {
                 Console.WriteLine(KysVas[nro].Kysymys);
-                Console.WriteLine(KysVas[nro].Oikea);
-                Console.WriteLine(KysVas[nro].Väärä);
-                string v = Console.ReadLine().ToLower().Trim();
-                return v;
+
+
+                Random kumpiensin = new Random();
+                int ke = kumpiensin.Next(1, 3);
+                int oik = default;
+
+                switch (ke)
+                {
+                    case 1:
+                        Console.WriteLine($"1 = { KysVas[nro].Oikea}");
+                        Console.WriteLine($"2 = { KysVas[nro].Väärä}");
+                        oik = 1;
+                        break;
+
+                    case 2:
+                        Console.WriteLine($"1 = {KysVas[nro].Väärä}");
+                        Console.WriteLine($"2 = {KysVas[nro].Oikea}");
+                        oik = 2;
+                        break;
+                }
+
+                int v = default;
+
+                do
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Anna oikean vastauksen numero ja paina enter:");
+                    Console.WriteLine();
+                    int.TryParse(Console.ReadLine().Trim(), out v);
+                } while (v < 1 || v > 2);
+
+                return v == oik;
             }
 
             return o;
