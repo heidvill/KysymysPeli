@@ -18,3 +18,5 @@ Onko meemut elämän suola?;kyllä;ei
 Onko Academy Espoossa?;kyllä;ei
 Onko suklaa hyvää?;kyllä;ei
 Toimiiko tämä peli?;kyllä;ei
+Minkä muotoista on vompatin kakka?;kuutio,kartio
+Minä merisiili käyttää suutaan syömisen lisäksi?;peräaukkona;silmänä
