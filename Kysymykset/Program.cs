@@ -11,8 +11,6 @@ namespace Kysymykset
         static TiedostonLuku tl = new TiedostonLuku();
 
         static int oikein = 0;
-        static string[] vaihtoehdot = { "kyllä juu joo jep yes", "ei no", "pupu kani" };
-        static bool täsmää = false;
 
         static void Main(string[] args)
         {
@@ -45,7 +43,7 @@ namespace Kysymykset
             foreach (var rivi in luetutRivit)
             {
                 var arvot = rivi.Split(';');
-                KysymysVastaus uusikysvas = new KysymysVastaus(arvot[0], arvot[1]); // 0 = kysymys, 1 = vastaus
+                KysymysVastaus uusikysvas = new KysymysVastaus(arvot[0], arvot[1], arvot[2]); // 0 = kysymys, 1 = oikea, 2 = väärä
                 KysVas.Add(uusikysvas);
             }
         }
@@ -56,49 +54,38 @@ namespace Kysymykset
             Random arpoja = new Random();
 
             int kysnro = arpoja.Next(0, KysVas.Count);
-            string vastaus = Kysy(kysnro);
+            string vastaus;
 
-
-            if (vastaus.Contains("kyllä") && vastaus.Contains("ei"))
+            do
             {
-                SoitaVäärä();
-                Console.WriteLine("Eipäs huijata!");
-            }
+                Console.Clear();
+                vastaus = Kysy(kysnro);
+                
 
-            foreach (var vaihtoehto in vaihtoehdot)
-            {
-                if (vaihtoehto.Contains(vastaus))
+                if (vastaus == KysVas[kysnro].Oikea)
                 {
-                    täsmää = true;
+                    Console.Beep(500, 100);
+                    Thread.Sleep(100);
+                    Console.Beep(800, 500);
+                    Console.WriteLine("Oikein!");
 
-                    if (KysVas[kysnro].Vastaus.Contains(vastaus))
-                    {
-                        Console.Beep(500, 100);
-                        Thread.Sleep(100);
-                        Console.Beep(800, 500);
-                        Console.WriteLine("Oikein!");
-
-                        o++;
-                    }
-                    else
-                    {
-                        SoitaVäärä();
-                        Console.WriteLine("Väärin >:( ");
-                    }
-
-                    KysVas.Remove(KysVas[kysnro]);
+                    o++;
                 }
-            }
+                else if (vastaus == KysVas[kysnro].Väärä)
+                {
+                    SoitaVäärä();
+                    Console.WriteLine("Väärin >:( ");
+                }
 
-            if (!täsmää)
-            {
-                Console.WriteLine("Väärin.");
-                KysVas.Remove(KysVas[kysnro]);
-            }
+            } while (vastaus != KysVas[kysnro].Väärä && vastaus != KysVas[kysnro].Oikea);
+
+            KysVas.Remove(KysVas[kysnro]);
 
             string Kysy(int nro)
             {
                 Console.WriteLine(KysVas[nro].Kysymys);
+                Console.WriteLine(KysVas[nro].Oikea);
+                Console.WriteLine(KysVas[nro].Väärä);
                 string v = Console.ReadLine().ToLower().Trim();
                 return v;
             }
