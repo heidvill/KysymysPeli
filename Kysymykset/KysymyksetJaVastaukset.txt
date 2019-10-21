@@ -1,20 +1,20 @@
-﻿Onko Academyn tilat 3. kerroksessa?;ei 
-Onko keittiössä 5 jääkaappia?;kyllä juu joo jep yes
-Lähteekö viimeinen metro Matinkylästä 23.00?;ei
-Onko tämä peli kiva?;kyllä juu joo jep yes
-Pitääkö Heikin antaa meille tästä pupumerkit?;kyllä juu joo jep yes
-Kuuluuko ananas pitsaan?;kyllä juu joo jep yes
-Laitetaanko levite näkkärin kuoppaiselle puolelle?;ei
-Laitetaanko levite näkkärin kuoppaiselle puolelle?;kyllä juu joo jep yes
-Kuuluuko vessapaperin tulla päältä?;kyllä juu joo jep yes
-Tuliko muna ennen kanaa?;ei
-Onko vastaus elämään, maailmankaikkeuteen ja kaikkeen muuhun sellaiseen 42?;kyllä juu joo jep yes
-Kumpi ja Kampi tappelivat, Kumpi voitti. Eikö niin?;kyllä juu joo jep yes
-Mikä on Siirin lempieläin?;pupu kani
-Onko punainen väri?;kyllä juu joo jep yes
-Onko kissa eläin?;kyllä juu joo jep yes
-Onko Console.Beep tosi siisti juttu?;kyllä juu joo jep yes
-Onko meemut elämän suola?;kyllä juu joo jep yes
-Onko Academy Espoossa?;kyllä juu joo jep yes
-Onko suklaa hyvää?;kyllä juu joo jep yes
-Toimiiko tämä peli?;kyllä juu joo jep yes
+﻿Onko Academyn tilat 3. kerroksessa?;ei;kyllä
+Onko keittiössä 5 jääkaappia?;kyllä;ei
+Lähteekö viimeinen metro Matinkylästä 23.00?;ei;kyllä
+Onko tämä peli kiva?;kyllä;ei
+Pitääkö Heikin antaa meille tästä pupumerkit?;kyllä;ei
+Kuuluuko ananas pitsaan?;kyllä;ei
+Laitetaanko levite näkkärin kuoppaiselle puolelle?;ei;kyllä
+Laitetaanko levite näkkärin kuoppaiselle puolelle?;kyllä;ei
+Kuuluuko vessapaperin tulla päältä?;kyllä;ei
+Tuliko muna ennen kanaa?;ei;kyllä
+Onko vastaus elämään, maailmankaikkeuteen ja kaikkeen muuhun sellaiseen 42?;kyllä;ei
+Kumpi ja Kampi tappelivat, Kumpi voitti. Eikö niin?;kyllä;ei
+Mikä on Siirin lempieläin?;pupu;koira
+Onko punainen väri?;kyllä;ei
+Onko kissa eläin?;kyllä;ei
+Onko Console.Beep tosi siisti juttu?;kyllä;ei
+Onko meemut elämän suola?;kyllä;ei
+Onko Academy Espoossa?;kyllä;ei
+Onko suklaa hyvää?;kyllä;ei
+Toimiiko tämä peli?;kyllä;ei
