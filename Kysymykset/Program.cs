@@ -42,9 +42,12 @@ namespace Kysymykset
         {
             foreach (var rivi in luetutRivit)
             {
-                var arvot = rivi.Split(';');
+                if (rivi.Trim().Length != 0)
+                {
+                    var arvot = rivi.Split(';');
                 KysymysVastaus uusikysvas = new KysymysVastaus(arvot[0], arvot[1], arvot[2]); // 0 = kysymys, 1 = oikea, 2 = väärä
                 KysVas.Add(uusikysvas);
+                }
             }
         }
 
